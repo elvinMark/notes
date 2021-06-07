@@ -1,0 +1,793 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\newcommand{\uvec}[1]{\boldsymbol{\hat{\textbf{#1}}}}
+
+\title{Summary of Physics equations}
+\author{Me}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Math}
+Factorial
+\begin{equation}
+  n! = n(n-1)(n-2)...1 = \prod_{i=1}^{n}i
+\end{equation}
+Combinatory
+\begin{equation}
+  \binom{n}{i} = \frac{n!}{i!(n-i)!}
+\end{equation}
+Binomial Theorem
+\begin{equation}
+  (a+b)^n = \sum_{i=0}^n\binom{n}{i}a^ib^{n-i}
+\end{equation}
+Pascal Triangle\\\\
+\begin{tabular}{rccccccccc}
+$n=0$:&    &    &    &    &  1\\\noalign{\smallskip\smallskip}
+$n=1$:&    &    &    &  1 &    &  1\\\noalign{\smallskip\smallskip}
+$n=2$:&    &    &  1 &    &  2 &    &  1\\\noalign{\smallskip\smallskip}
+$n=3$:&    &  1 &    &  3 &    &  3 &    &  1\\\noalign{\smallskip\smallskip}
+$n=4$:&  1 &    &  4 &    &  6 &    &  4 &    &  1\\\noalign{\smallskip\smallskip}
+\end{tabular}
+\\\\
+Property of Combinatory (deduced by using Pascal Triangle)
+\begin{equation}
+  \binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}
+\end{equation}
+
+\section{Linear Algebra}
+Vector ($v_i$ is the $i^{th}$ element of $\vec{v}$)
+\begin{equation}
+  \vec{v} = \left[v_i\right] = 
+  \begin{bmatrix}
+    v_1\\
+    v_2\\
+    \vdots\\
+    v_n
+  \end{bmatrix}
+\end{equation}
+Matrix
+\begin{equation}
+  A = \left[A_{ij}\right] = 
+  \begin{bmatrix}
+    a_{11} & a_{12} & \hdots & a_{1n}\\
+    a_{21} & a_{22} & \hdots & a_{2n}\\
+    \vdots & \ddots & \vdots & \vdots\\
+    a_{m1} & a_{m2} & \hdots & a_{mn}\\
+  \end{bmatrix}
+\end{equation}
+Norm of a vector (``length'' of the vector)
+\begin{equation}
+  \|\vec{u}\| = \sqrt{\sum_i u_i^2}
+\end{equation}
+Dot product ($\theta$ is the angle between $u$ and $v$)
+\begin{equation}
+  \vec{u} \cdot \vec{v} = \sum_i u_iv_i = \|\vec{u}\|\|\vec{v}\| \cos(\theta)
+\end{equation}
+Unit Vector
+\begin{equation}
+  \uvec{u} = \frac{\vec{u}}{\|\vec{u}\|}
+\end{equation}
+Cross product ($\uvec{i}$ is the unit vector in the x-axis,$\uvec{j}$ is the unit vector in the y-axis,$\uvec{k}$ is the unit vector in the z-axis)
+\begin{equation}
+  \vec{u} \times \vec{v} =
+  \begin{vmatrix}
+    \uvec{i} & \uvec{j} & \uvec{k}\\
+    u_1 & u_2 & u_3\\
+    v_1 & v_2 & v_3 
+  \end{vmatrix}
+\end{equation}
+ Norm of the cross product ($\theta$ is the angle between $u$ and $v$)
+\begin{equation}
+  \|\vec{u} \times \vec{v}\| = \|\vec{u}\|\|\vec{v}\|\sin(\theta)
+\end{equation}
+Product Matrix - Vector
+\begin{equation}
+  \vec{v} = A\vec{u} \implies [v_i] = [\sum_k A_{ik}u_k]
+\end{equation}
+Product Matrix - Matrix
+\begin{equation}
+  A = BC \implies [A_{ij}] = [\sum_k B_{ik}C_{kj}]
+\end{equation}
+Triple scalar product (Proof by using a paralelepiped construct using the vectors $\vec{a}$,$\vec{b}$ and $\vec{c}$)
+\begin{equation}
+  \vec{a} \cdot(\vec{b} \times \vec{c}) =  \vec{c} \cdot(\vec{a} \times \vec{b}) =  \vec{b} \cdot(\vec{c} \times \vec{a})
+\end{equation}
+Triple cross product (This is by analyzing that $\vec{a} \times (\vec{b} \times \vec{c})$ is in the plane made by these two vectors $\vec{a}$ and $\vec{b}$)
+\begin{equation}
+  \vec{a} \times (\vec{b} \times \vec{c}) = (\vec{a}\cdot\vec{c}) \vec{b} - (\vec{a}\cdot\vec{b}) \vec{c}
+\end{equation}
+Line Equation ($\vec{\alpha}_0$ is a reference point to the line, $\uvec{u}$ is a unit vector in the direction of the line and $t$ is a just parameter)
+\begin{equation}
+  \vec{r} = \vec{\alpha}_0 + t\uvec{u}
+\end{equation}
+Plane Equation ($\vec{r}_0$ is a point of reference in the plane, $\uvec{n}$ is a unit vector normal to the plane )
+\begin{equation}
+  \uvec{n} \cdot (\vec{r} - \vec{r}_0) = \vec{0} 
+\end{equation}
+
+\section{Calculus}
+Derivative
+\begin{equation}
+  \frac{df}{dx} = f'(x) = lim_{h \to 0}\frac{f(x+h) - f(x)}{h}
+\end{equation}
+Integrative
+\begin{equation}
+  F(x) = \int f(x) dx
+\end{equation}
+\begin{equation}
+  f(x) = \frac{dF}{dx}
+\end{equation}
+Area (A) under the curve f from a to b
+\begin{equation}
+  A_{a \to b} = \int_a^b f(x) dx = F(b) - F(a)
+\end{equation}
+Rapid Proof
+\begin{equation}
+   f(a)h = A_{a \to a+h} = \int_a^{a+h} f(x) dx = F(a+h) - F(a)
+\end{equation}
+when $h \to 0$
+\begin{equation}
+  f(a) = \frac{F(a+h) - F(a)}{h} = \frac{dF}{dx}\Bigr|_{x=a} = F'(x=a) = f(a)
+\end{equation}
+Neperian number ($e$)
+\begin{equation}
+  e = lim_{n \to \infty}(1 + \frac{1}{n})^n
+\end{equation}
+
+\section{Multivariable Calculus}
+Gradient of a function
+\begin{equation}
+  \nabla f(\vec{r}) = (\frac{\partial f}{\partial x},\frac{\partial f}{\partial y},\frac{\partial f}{\partial z})
+\end{equation}
+\begin{equation}
+  df = \nabla f \cdot d\vec{r} = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy + \frac{\partial f}{\partial z} dz 
+\end{equation}
+when $\vec{h} \to \vec{0}$
+\begin{equation}
+  df = f(\vec{r} + \vec{h}) - f(\vec{r}) =  \nabla f \cdot \vec{h} 
+\end{equation}
+Divergence
+\begin{equation}
+  \nabla \cdot \vec{F}(\vec{r}) = \frac{\partial F}{\partial x} +  \frac{\partial F}{\partial y} +  \frac{\partial F}{\partial z}
+\end{equation}
+Rotational
+\begin{equation}
+  \nabla \times \vec{F}(\vec{r}) =
+  \begin{vmatrix}
+    \uvec{i} & \uvec{j} & \uvec{k} \\
+    \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z}\\
+    F_x & F_y & F_z
+  \end{vmatrix}
+\end{equation}
+Gauss Theorem
+\begin{equation}
+  \oint_{\partial V} \vec{F} \cdot d\vec{S} = \int \nabla \cdot \vec{F} dV 
+\end{equation}
+Stokes Theorem
+\begin{equation}
+  \oint_{\partial A} \vec{F} \cdot d\vec{l} = \int \nabla \times \vec{F} \cdot d\vec{S}
+\end{equation}
+
+\section{Complex Numbers}
+Definition of complex unit ($i$ and sometimes $j$)
+\begin{equation}
+  i^2 = -1
+\end{equation}
+Euler's formula
+\begin{equation}
+  e^{i\theta} = \cos(\theta) + i\sin(\theta)
+\end{equation}
+Euler's identity
+\begin{equation}
+  e^{i\pi}+1=0
+\end{equation}
+Arithmetic with complex numbers ($z_1 = x_1 + iy_i$ and $z_2 = x_2 + iy_2$ with $x_1,y_1,x_2,y_2 \in \mathbb{R}$)
+\begin{equation}
+  \begin{split}
+    z_1 \pm z_2  = (x_1 \pm x_2) + i(y_1 \pm y_2)\\
+    z_1\times z_2 = (x_1x_2 - y_1y_2) + i(x_1y_2 + x_2y_1)
+  \end{split}
+\end{equation}
+Poles of a function f(z) ($z_i$, in general it is a singularity)
+\begin{equation}
+  lim_{z \to z_i}f(z) \to \infty
+\end{equation}
+Residue Theorem
+\begin{equation}
+  \oint_{\mathscr{C}} f(z) dz = \frac{1}{2\pi i}(\sum_i lim_{z \to z_i} f(z)(z-z_i))
+\end{equation}
+
+\section{Statistics}
+Mean
+\begin{equation}
+  \mu = \frac{\sum_{i=1}^n x_i}{n}
+\end{equation}
+Standard Deviation
+\begin{equation}
+  \sigma = \sqrt{\frac{\sum_{i=1}^n(x_i - \mu)^2}{n}}
+\end{equation}
+Normal Distribution
+\begin{equation}
+  f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+\end{equation}
+Binomial Distribution ($p$ is the probability that the positive event happened, this distribution is used when there is just 2 possible outcomes)
+\begin{equation}
+  B(p,x) = \binom{n}{x}p^x(1-p)^{n-x}
+\end{equation}
+Poisson Distribution
+\begin{equation}
+  P_o(x) = \frac{e^{-\lambda}\lambda^x}{x!}
+\end{equation}
+
+
+\section{Probability}
+Sample of Events
+\begin{equation}
+  S = \{E_1,E_2,E_3, \dots,E_n\}
+\end{equation}
+Probability of an event $E_i$ is $P(E_i)$
+\begin{equation}
+  \sum_i P(E_i) = 1
+\end{equation}
+In continuous
+\begin{equation}
+  \int_{\Omega} P(x) dx = 1
+\end{equation}
+Expected Value
+\begin{equation}
+  x = \sum_i x_i P(x_i)
+\end{equation}
+\begin{equation}
+  x = \int_{\Omega}xP(x) dx
+\end{equation}
+Example: Dices - Expected value ($P(1) =P(2) = P(3) = P(4) = P(5) = P(6) = \frac{1}{6}$)
+\begin{equation}
+  1P(1) + 2P(2) + 3P(3) + 4P(4) + 5P(5) + 6P(6) = \frac{21}{6} = 3.5
+\end{equation}
+If A and B are indepents:
+\begin{equation}
+  P(A \cup B) = P(A) + P(B)
+\end{equation}
+If A and B are not indepents:
+\begin{equation}
+  P(A \cup B) = P(A) + P(B) - P(A\cap B)
+\end{equation}
+Conditional Probability (probability that A happens if B happened)
+\begin{equation}
+  P(A|B) = \frac{P(A\cap B)}{P(B)}
+\end{equation}
+Bayes Theorem
+\begin{equation}
+  P(A|B) = \frac{P(B|A)P(A)}{P(B)}
+\end{equation}
+
+
+\section{Transformations and Series}
+All functions can be expressed as a polynomial of infinity degree (This is used to solve ordinary differential equations, just replace this in the equation and find the coefficients $a_i$)
+\begin{equation}
+  f(x) = \sum_{i=0}^{\infty} a_ix^i
+\end{equation}
+Taylor Series (expansion around $x_0$, $f^{i}$ is the $i^{th}$derivative of f)
+\begin{equation}
+  f(x) = \sum_{i=0}^{\infty}\frac{f^{i}(x_0)(x-x_0)^i}{i!}
+\end{equation}
+Laplace (To solve linear differential equations)
+\begin{equation}
+  F(p) = \mathscr{L}\{f(x)\} = \int_0^{\infty} f(x) e^{-px}dx
+\end{equation}
+Fourier Series for periodic functions (To solve partial differential equations)
+\begin{equation}
+  f(x) = a_0  + \sum_{n=1}^{\infty} a_n sin(\frac{2\pi n}{T}x) + b_n cos(\frac{2\pi n}{T}x)
+\end{equation}
+Fourier Transform
+\begin{equation}
+  F(w) = \mathscr{F}\{f(x)\} = \int_{-\infty}^{\infty}f(x)e^{-jwx} dx
+\end{equation}
+\begin{equation}
+  f(x) = \mathscr{F}^{-1}\{F(w)\} = \int_{-\infty}^{\infty}F(w)e^{jwx} dx
+\end{equation}
+
+\section{Mechanics}
+Linear Momentum definition
+\begin{equation}
+  \vec{P} = m\vec{v} = m\frac{d\vec{r}}{dt}
+\end{equation}
+Newton's First Law
+\begin{equation}
+  \sum \vec{F}_i^{ext} = \vec{0} \implies \sum \vec{P}_i^{sys} = constant
+\end{equation}
+Newton's Second Law
+\begin{equation}
+  \vec{F} = \frac{d\vec{P}}{dt} 
+\end{equation}
+\begin{equation}
+  m = constant \implies \vec{F} = m\vec{a} = m\frac{d\vec{v}}{dt}= m\frac{d^2\vec{r}}{dt^2}
+\end{equation}
+Newton's Third Law
+\begin{equation}
+  \vec{F}_{ij} = - \vec{F}_{ij}
+\end{equation}
+Center of Mass
+\begin{equation}
+  \vec{r}_{CM} = \frac{\sum_i m_i\vec{r}_i}{\sum_i m_i}
+\end{equation}
+Rigid Body ($\vec{r'}_i$ is the position of any particle of the rigid body with respect of the center of mass)
+\begin{equation}
+  \vec{r}_i = \vec{r}_{CM} + \vec{r'}_i
+\end{equation}
+Since it is a rigid body then:
+\begin{equation}
+  \|\vec{r'}_i\| = constant
+\end{equation}
+Angular Momentum
+\begin{equation}
+  \begin{split}
+    \vec{L} = \vec{r} \times \vec{P} =\vec{r} \times m\vec{v} = \vec{r} \times m(\vec{w} \times \vec{r}) = m(\vec{r}\cdot \vec{r}) \vec{w} = mr^2 \vec{w}
+  \end{split}
+\end{equation}
+Inertia Moment (where $r_i$ is the perpendicular distance from the position of mass $m_i$ to the rotation axis)
+\begin{equation}
+  I = \sum_i m_ir_i^2
+\end{equation}
+\begin{equation}
+  I = \int_V r^2dm
+\end{equation}
+Angular Momentum (General Definition)
+\begin{equation}
+  \vec{L} = I\vec{w} = I\frac{d\vec{\theta}}{dt}
+\end{equation}
+Angular Momentum Conservation
+\begin{equation}
+  \sum \vec{\tau}^{ext}_i = 0 \implies \sum \vec{L}^{sys}_i
+\end{equation}
+Torque
+\begin{equation}
+  \vec{\tau} = \frac{d\vec{L}}{dt} = \vec{r} \times \vec{F}
+\end{equation}
+Gravitation Law (Force exerted on $m_i$ by $m_j$)
+\begin{equation}
+  \vec{F}_g = -Gm_im_j\frac{\vec{r}_i - \vec{r}_j}{\|\vec{r}_i - \vec{r}_j\|^3}
+\end{equation}
+Work definition
+\begin{equation}
+  W_{\vec{r}_0 \implies \vec{r}_f} = \int_{\vec{r}_0}^{\vec{r}_f}\vec{F} \cdot d\vec{r}
+\end{equation}
+This lead to energy concept and energy conservation:
+\begin{equation}
+  m\vec{a} = \vec{F} \implies \int (m\vec{a} - \vec{F}) \cdot d\vec{r} = \int \vec{0} \cdot d\vec{r} = 0 
+\end{equation}
+Kinetic Energy
+\begin{equation}
+\Delta E_k = \int_{\vec{r}_i}^{\vec{r}_f}\vec{F} \cdot d\vec{r} = \int_{\vec{r}_i}^{\vec{r}_f}m\frac{d\vec{v}}{dt} \cdot d\vec{r} = \int_{v_i}^{v_f}m\vec{v} \cdot d\vec{v} = \frac{mv_f^2}{2} - \frac{mv_0^2}{2}
+\end{equation}
+\begin{equation}
+  E_k = \frac{mv^2}{2}
+\end{equation}
+Potential Energy ($E_p$ or $U$)
+\begin{equation}
+  \Delta E_p = E_p(r_f) - E_p(r_0) =  \int_{\vec{r}_0}^{\vec{r}_f}\nabla U(\vec{r})\cdot d\vec{r}
+\end{equation}
+For the case of Gravitational forces ($\vec{r}_j = \vec{0}$ and $\vec{r}_i = \vec{r}$)
+\begin{equation}
+  \Delta E_p = \int_{\vec{r}_0}^{\vec{r}_f} -\vec{F} \cdot d\vec{r} = \int_{\vec{r}_0}^{\vec{r}_f} Gm_im_j\frac{\vec{r}}{\|\vec{r}\|^3} \cdot d\vec{r} = -\frac{Gm_im_j}{\|\vec{r}_f\|} + \frac{Gm_im_j}{\|\vec{r}_0\|} 
+\end{equation}
+In case of the gravitation force, the potential energy would be:
+\begin{equation}
+  U(\vec{r}) = -\frac{Gm_im_j}{\|\vec{r}\|} 
+\end{equation}
+Conservative Forces
+\begin{equation}
+  \vec{F}_c = - \nabla \phi
+\end{equation}
+Rotational Energy
+\begin{equation}
+  \begin{split}
+    \Delta E_r = \int_{\vec{r}_0}^{\vec{r}_f}\vec{F} \cdot d\vec{r} = \int_{t_0}^{t_f}\vec{F} \cdot \vec{v}dt =   \int_{t_0}^{t_f} \vec{F} \cdot (\vec{r} \times \vec{w})dt = \\ \int_{t_0}^{t_f}(\vec{r} \times \vec{F}) \cdot \vec{w}dt = \int_{t_0}^{t_f} (\vec{r} \times \vec{F}) \cdot \vec{w}dt =  \int_{t_0}^{t_f} \vec{\tau}\cdot d\vec{\theta} = \int_{\theta_0}^{\theta_f}\tau d\theta
+  \end{split}
+\end{equation}
+\begin{equation}
+  \begin{split}
+    \Delta E_r = \int_{t_0}^{t_f} \vec{\tau}\cdot d\vec{\theta} =  \int_{t_0}^{t_f} I\frac{d\vec{w}}{dt}\cdot d\vec{\theta} =\\  \int_{t_0}^{t_f} I \vec{w} \cdot d\vec{w} = \int_{w_0}^{w_f} Iwdw = \frac{Iw_f^2}{2} - \frac{Iw_0^2}{2}
+  \end{split}
+\end{equation}
+\begin{equation}
+  E_r = \frac{Iw^2}{2}
+\end{equation}
+Energy Conservation (When there is just conservative forces)
+\begin{equation}
+  \Delta E_k + \Delta E_p + \Delta E_r = 0
+\end{equation}
+\begin{equation}
+  E_k + E_p + E_r = constant
+\end{equation}
+For Rigid Bodies - Kinetic Energy
+\begin{equation}
+  E_k = \sum_i \frac{m_iv_i^2}{2} = \sum_i \frac{m_i\|\dot{\vec{r}}_i^2\|}{2} = \sum_i \frac{m_i \dot{\vec{r}}_i \cdot \dot{\vec{r}}_i }{2} 
+\end{equation}
+Since $\vec{r}_i = \vec{r}_{CM} + \vec{r'}_i$ and $\vec{r'}_i \cdot \vec{r'}_i = constant \implies \vec{r'}_i \cdot \dot{\vec{r'}}_i = 0$ and also $M = \sum_im_i$:
+\begin{equation}
+  \vec{r'}_i \cdot \dot{\vec{r'}}_i = 0 \implies \dot{\vec{r'}}_i = \vec{w} \times \vec{r'}_i
+\end{equation}
+\begin{equation}
+  \begin{split}
+    E_k = \sum_i \frac{m_i \dot{\vec{r}}_i \cdot \dot{\vec{r}}_i }{2} = \sum_i \frac{m_i (\dot{\vec{r}}_{CM} + \dot{\vec{r'}}_i) \cdot (\dot{\vec{r}}_{CM} +\dot{\vec{r'}}_i)}{2} =  \sum_i \frac{m_i \dot{\vec{r}}_{CM} \cdot \dot{\vec{r}}_{CM}}{2} + \\\sum_i \frac{m_i \dot{\vec{r'}}_i \cdot \dot{\vec{r'}}_i}{2} + \vec{r}_{CM} \cdot \sum_i m_i \dot{\vec{r'}}_i =  \frac{M\dot{\vec{r}}_{CM} \cdot \dot{\vec{r}}_{CM}}{2} + \sum_i \frac{m_i \dot{\vec{r'}}_i \cdot \dot{\vec{r'}}_i}{2}
+  \end{split}
+\end{equation}
+The first term of the previous equation is the kinetic energy of traslation
+\begin{equation}
+  K = \frac{M\vec{r}_{CM} \cdot \vec{r}_{CM}}{2}
+\end{equation}
+The second term can be viewd as ($d_i$ is the distance from that point to the axis of rotation):
+\begin{equation}
+  \begin{split}
+   R = \sum_i \frac{m_i \dot{\vec{r'}}_i \cdot \dot{\vec{r'}}_i}{2} =  \sum_i \frac{m_i (\vec{w}\times\vec{r'}_i) \cdot \vec{w}\times\vec{r'}_i)}{2} = \sum_i \frac{m_i \vec{r'}_i \cdot (-\vec{w} \times (\vec{w} \times \vec{r'}_i))}{2} = \\\sum_i \frac{m_i \vec{r'}_i \cdot ((\vec{w}\cdot\vec{w}) \vec{r'}_i - (\vec{w}\cdot\vec{r'}_i) \vec{w})}{2} = w^2\sum_i \frac{m_id_i^2}{2} = \frac{Iw^2}{2} 
+  \end{split}
+\end{equation}
+For rigid bodies ($K$ is the kinetic energy of traslation and $R$ is the rotational energy respect to an axis that passes the center of mass):
+\begin{equation}
+  E_k = K + R
+\end{equation}
+Wave Equation
+\begin{equation}
+  \frac{d^2y}{dx^2} + w^2y = 0
+\end{equation}
+Solution of the wave equation
+\begin{equation}
+    y = A_1cos(wx) + A_2sin(wx) =  Bcos(wx+ \phi)
+\end{equation}
+Spring (just in x axis, $k$: Spring constant)
+\begin{equation}
+  F(x) = -kx
+\end{equation}
+Spring - Movement equation
+\begin{equation}
+  F(x) = m\frac{d^2x}{dt^2} = -kx \implies \frac{d^2x}{dt^2} + \frac{k}{m}x = 0
+\end{equation}
+Spring - Solution ($w = \sqrt{\frac{k}{m}}$)
+\begin{equation}
+  x = Acos(wt + \phi)
+\end{equation}
+Pendulum simple (length $l$, mass $m$, gravity acceleration)
+\begin{equation}
+  \tau = \vec{r} \times \vec{F} = -mgl\sin(\theta)
+\end{equation}
+If $\theta \to 0$ $\implies$ $\sin(\theta) \sim \theta$
+\begin{equation}
+  \tau = -mgl\theta = \frac{dL}{dt} = \frac{d(ml^2w)}{dt} = ml^2\frac{d^2\theta}{dt^2}
+\end{equation}
+\begin{equation}
+  \frac{d^2\theta}{dt^2} + \frac{g}{l}\theta = 0
+\end{equation}
+Solution ($w=\sqrt{\frac{g}{l}}$)
+\begin{equation}
+  \theta = A\cos(wt + \phi)
+\end{equation}
+Mechanical Wave in a string ($y = y(x,t)$ is the amplitude of the wave in the $x$ position at the time $t$) - Equation
+\begin{equation}
+  \frac{\partial^2y}{\partial t^2} = v^2\frac{\partial^2y}{\partial x^2}
+\end{equation}
+Solution of the wave equation ($w$ : angular frequency, $k$ : wave number)
+\begin{equation}
+  y = Acos(wt + kx + \phi)
+\end{equation}
+In general (3D case): Wave Equation
+\begin{equation}
+  \frac{\partial^2 F}{\partial t^2} = v^2\nabla^2 F
+\end{equation}
+Solution of the Wave Equation (3D) ($\vec{k}$ : Wave vector (points in the direction of the propagation of the wave), $w$ : angular frequency)
+\begin{equation}
+  F(\vec{r},t) = Acos(wt + \vec{k}\cdot\vec{r} + \phi )
+\end{equation}
+Lagrangian ($T$ : Kinetic Energy, $U$ : Potential Energy)
+\begin{equation}
+  L(q,\dot{q},t) = T(q,\dot{q},t) - U(q,\dot{q},t)
+\end{equation}
+Action
+\begin{equation}
+  S = \int_{t_0}^{t_f}Ldt
+\end{equation}
+Euler-Lagrange Equation (obatined when minimizing the action $S$)
+\begin{equation}
+  \frac{\partial L}{\partial q} - \frac{d}{dt}(\frac{\partial L}{\partial \dot{q}}) = 0
+\end{equation}
+Example of Euler-Lagrange Equation ($T$ = $\frac{m\dot{x}^2}{2}$, $U$ = $mgx$)
+\begin{equation}
+  \frac{\partial L}{\partial q} - \frac{d}{dt}(\frac{\partial L}{\partial \dot{q}}) = -mg -m\ddot x=0 \implies a = -g
+\end{equation}
+
+\section{Fluid Mechanics}
+Bernoulli Equations (which is just conservation of energy)
+\begin{equation}
+  \rho gh + \frac{\rho v^2}{2} + p = constant
+\end{equation}
+Navier-Stokes Equation ($\vec{v} = \vec{v}(\vec{r},t)$ is the velocity of the fluid at the position $\vec{r}$ and the time $t$)
+\begin{equation}
+  \rho \frac{D \vec{v}}{Dt} = \rho (\frac{\partial \vec{v}}{\partial t} + (\vec{v}\cdot \nabla)\vec{v}) = -\nabla p+\rho \vec{g} + \mu \nabla^2 \vec{v}
+\end{equation}
+Continuity Equation
+\begin{equation}
+  \nabla \cdot \vec{v} = \vec{0}
+\end{equation}
+
+\section{Thermodynamics}
+Pressure ($F$ is the magnitude of the force perpendicular to $A$)
+\begin{equation}
+  P = \frac{F}{A}
+\end{equation}
+Ideal Gas Law ($P$ : pressure, $V$ : Volume, $n$ : Number of moles, $R$ : Ideal gas constant, $T$ : Temperature)
+\begin{equation}
+  PV = nRT
+\end{equation}
+Work done by the system
+\begin{equation}
+  W = \int_{V_0}^{V_f} P dV
+\end{equation}
+First Law of Thermodynamics ($Q$ is heat, $W$ is work and $\Delta U$ is the change of internal energy), this law meas conservation of energy
+\begin{equation}
+  Q = W + \Delta U
+\end{equation}
+Second Law of thermodynamics ($\Delta S$ is change of entropy)
+\begin{equation}
+  \Delta S \ge 0
+\end{equation}
+Isothermic Process ($T = constant$)
+\begin{equation}
+  W = \int_{V_0}^{V_f} P dV =  \int_{V_0}^{V_f} \frac{nRT}{V} dV = nRT \ln(\frac{V_f}{V_0})
+\end{equation}
+Since $U=U(T)$, then for $T=constant \implies \Delta U = 0$
+\begin{equation}
+  Q = nRT \ln(\frac{V_f}{V_0})
+\end{equation}
+Isobaric Process ($P = P_0 = constant$)
+\begin{equation}
+  W = \int_{V_0}^{V_f} P dV = P_0(V_f - V_0)
+\end{equation}
+In ideal case: $\Delta U(T) = C_P\Delta T$, where $C_P$ is the Calorific Capacity at constant pressure 
+\begin{equation}
+  Q = P_0(V_f - V_0) + C_P(T_f - T_0)
+\end{equation}
+Isocoric Process ($V = V_0 = constant$)
+\begin{equation}
+  W = \int_{V_0}^{V_f} P dV = 0
+\end{equation}
+In ideal case: $\Delta U(T) = C_V\Delta T$, where $C_V$ is the Calorific Capacity at constant volume
+\begin{equation}
+  Q = C_V\Delta T = C_V(T_f - T_0)
+\end{equation}
+Heat Capacity ($Q$ is heat)
+\begin{equation}
+  Q = \int_V C dT
+\end{equation}
+Heat Transfer by convection ($A$ is the area of the surface, $T_f$ is the fluid temperature (like air for example), $T$ is the temperature of the surface and $h$ is the convection constant)
+\begin{equation}
+  \dot{Q}(t) = hA(T_f - T)
+\end{equation}
+Heat Transfer by conduction (Fourier's Law, $q$ is the heat flux)
+\begin{equation}
+  q_x = -K\frac{dT}{dx}
+\end{equation}
+\begin{equation}
+  \vec{q} = -K\nabla T
+\end{equation}
+Diffusion Equation
+\begin{equation}
+  \frac{\partial T}{\partial t} = \kappa \nabla^2T
+\end{equation}
+
+\section{Electromagnetism}
+Current definition
+\begin{equation}
+  I = \frac{dq}{dt}
+\end{equation}
+Current density definition ($A$ is the transversal area through which I passes)
+\begin{equation}
+  J = \frac{I}{A}
+\end{equation}
+\begin{equation}
+  I = \int_{A} \vec{J} \cdot d\vec{S}
+\end{equation}
+Coulomb's Law
+\begin{equation}
+    \vec{F}_E = kq_iq_j\frac{\vec{r}_i - \vec{r}_j}{\|\vec{r}_i - \vec{r}_j\|^3}
+\end{equation}
+Electric Field
+\begin{equation}
+  \vec{E} = lim_{q_i \to 0} \frac{\vec{F}_e}{q_i} = kq_j\frac{\vec{r}_i - \vec{r}_j}{\|\vec{r}_i - \vec{r}_j\|^3}
+\end{equation}
+Electric Force
+\begin{equation}
+  \vec{F}_E = q\vec{E}
+\end{equation}
+Magnetic Force
+\begin{equation}
+  \vec{F_B} = q\vec{v} \times \vec{B}
+\end{equation}
+\begin{equation}
+  \vec{F_B} = \int Id\vec{l} \times \vec{B}
+\end{equation}
+\begin{equation}
+  \vec{F_B} = \int_{V} \vec{J} \times \vec{B} dV
+\end{equation}
+Magnetic Field
+\begin{equation}
+  \vec{B} = \int \frac{\mu_0Id\vec{l} \times \vec{r}}{4\pi\|\vec{r}\|^3}
+\end{equation}
+\begin{equation}
+  \vec{B} = \int \frac{\mu_0\vec{J} \times \vec{r} dV}{4\pi\|\vec{r}\|^3}
+\end{equation}
+Gauss Law for Electric Field and Magnetic Field ($\rho = \frac{dq}{dV}$ is charge density)
+\begin{equation}
+  \oint_{\partial V}\vec{E} \cdot d\vec{S} = \frac{Q}{\epsilon_0}
+\end{equation}
+\begin{equation}
+  \nabla \cdot \vec{E} = \frac{\rho}{\epsilon_0}
+\end{equation}
+\begin{equation}
+  \oint_{\partial V}\vec{B} \cdot d\vec{S} = 0
+\end{equation}
+\begin{equation}
+  \nabla \cdot \vec{B} = 0
+\end{equation}
+Ampere's Law
+\begin{equation}
+  \oint_{\partial A} \vec{B} \cdot d\vec{l} = \mu_0I
+\end{equation}
+\begin{equation}
+  \nabla \times \vec{B} = \mu_0 \vec{J}
+\end{equation}
+Ampere's Law (with the displacement current)
+\begin{equation}
+  \oint_{\partial A} \vec{B} \cdot d\vec{l} = \mu_0I + \mu_0\epsilon_0\frac{d\int_{\partial V}\vec{E} \cdot d\vec{S}}{dt}
+\end{equation}
+\begin{equation}
+  \nabla \times \vec{B} = \mu_0 \vec{J} + \mu_0\epsilon_0\frac{\partial \vec{E}}{\partial t}
+\end{equation}
+Faraday's Law
+\begin{equation}
+ \oint_{\partial A} \vec{E} \cdot d\vec{l} = -\frac{d\int_{\partial V}\vec{B} \cdot d\vec{S}}{dt}  
+\end{equation}
+\begin{equation}
+  \nabla \times \vec{E} = -\frac{\partial \vec{B}}{\partial t}
+\end{equation}
+Electromagnetic Waves in vaccum ($\rho = 0$ (no charge), $\vec{J} = \vec{0}$ (no current))
+\begin{equation}
+  \nabla \times \nabla \times \vec{E} = -\frac{\partial \nabla \times \vec{B}}{\partial t} = -\mu_0\epsilon_0\frac{\partial^2\vec{E}}{\partial t^2}
+\end{equation}
+Since $\nabla \times \nabla \times \vec{E} = \nabla(\nabla \cdot \vec{E}) -\nabla^2 \vec{E}$:
+\begin{equation}
+  \nabla^2 \vec{E} = \mu_0\epsilon_0\frac{\partial^2\vec{E}}{\partial t^2}
+\end{equation}
+Since $c = \frac{1}{\sqrt{\mu_0\epsilon_0}}$
+\begin{equation}
+    \nabla^2 \vec{E} = \frac{1}{c^2}\frac{\partial^2\vec{E}}{\partial t^2}
+\end{equation}
+In the same way:
+\begin{equation}
+  \nabla \times \nabla \times \vec{B} = \mu_0\epsilon_0\frac{\partial \nabla \times \vec{E}}{\partial t} = - \mu_0\epsilon_0 \frac{\partial^2 \vec{B}}{\partial t^2}
+\end{equation}
+Since $\nabla \times \nabla \times \vec{B} = \nabla(\nabla \cdot \vec{B}) -\nabla^2 \vec{B}$:
+\begin{equation}
+  \nabla^2 \vec{B} = \mu_0\epsilon_0\frac{\partial^2\vec{B}}{\partial t^2}
+\end{equation}
+Solution of the wave equation mentioned before (where $c=wk$, $w$ : angular frequency and $k$ : wave number)
+\begin{equation}
+  \vec{E}(\vec{r},t) = E_0cos(wt + \vec{k} \cdot \vec{r} + \phi)
+\end{equation}
+\begin{equation}
+  \vec{B}(\vec{r},t) = B_0cos(wt + \vec{k} \cdot \vec{r} + \phi)
+\end{equation}
+
+\section{Quantum Mechanics}
+Wave Function $\psi(\vec{r})$:
+\begin{equation}
+  \int_V \psi^*(\vec{r}) \psi(\vec{r})d\vec{r} = 1
+\end{equation}
+Probability to find the particle in the region $\Omega$:
+\begin{equation}
+  P(\Omega) = \int_\Omega \psi^*(\vec{r}) \psi(\vec{r}) d\vec{r}
+\end{equation}
+Position Operator
+\begin{equation}
+  \widehat{\vec{r}}\psi(\vec{r}) = \vec{r}\psi(\vec{r})
+\end{equation}
+Expected position
+\begin{equation}
+  \vec{R} = \int_V \psi^*(\vec{r}) \vec{r}\psi(\vec{r}) d\vec{r}
+\end{equation}
+Momentum Operator
+\begin{equation}
+  \widehat{P} = \frac{\hbar}{i}\nabla
+\end{equation}
+Schrodinguer Equation
+\begin{equation}
+  \widehat{H}\psi = \frac{\widehat{P}^2}{2m}\psi + \widehat{V}\psi = -\frac{\hbar^2}{2m}\nabla^2 \psi + V(\vec{r})\psi =  E\psi
+\end{equation}
+
+\section{Einstein Relativity}
+Time dilatation ($t$ is the time in a reference frame which is in rest and $t'$ is the time in a reference frame which is moving with constant velocity $v$, all of this in the x axis). (The idea is to decipher this is just using a mirror in the roof and the soil of a train moving and a ray of light bouncing between those mirrors, also using the idea that $c$ is the same value in all reference systems)
+\begin{equation}
+  \Delta t' = \Delta t \sqrt{1 - \frac{v^2}{c^2}}
+\end{equation}
+Length Contraction (by measuring using a laser, in other words using a ray of light)
+\begin{equation}
+  L' = c\Delta t' = c\Delta t \sqrt{1 - \frac{v^2}{c^2}} = L\sqrt{1 - \frac{v^2}{c^2}}
+\end{equation}
+Lorentz Transformations
+\begin{equation}
+  \begin{split}
+    x = \frac{x' + vt'}{\sqrt{1 - \frac{v^2}{c^2}}}\\
+    x' = \frac{x' + vt'}{\sqrt{1 - \frac{v^2}{c^2}}}\\
+      t = \frac{t' + x'\frac{v}{c^2}}{\sqrt{1 - \frac{v^2}{c^2}}}\\
+      t' = \frac{t - x\frac{v}{c^2}}{\sqrt{1 - \frac{v^2}{c^2}}}
+  \end{split}
+\end{equation}
+Lorentz Constant
+\begin{equation}
+  \gamma = \frac{1}{\sqrt{1-\frac{v^2}{c^2}}}
+\end{equation}
+In general:
+\begin{equation}
+  \gamma(\vec{v}) = \frac{1}{\sqrt{1-\frac{\vec{v}\cdot \vec{v}}{c^2}}}
+\end{equation}
+In order to generalize Lorentz Transformations to any direction, we can use projections of the vector position along the axis of movement ($\vec{r'} \cdot \vec{v}$). So $\vec{r'} = \vec{r'}_1 + \vec{r'}_2$ where $\vec{r'}_1$ is parallel to $\vec{v}$ and $\vec{r'}_2$ is orthogonal to $\vec{v}$
+\begin{equation}
+  \vec{r'}_1 = (\vec{r'} \cdot \frac{\vec{v}}{\|\vec{v}\|} )\frac{\vec{v}}{\|\vec{v}\|}
+\end{equation}
+\begin{equation}
+  \vec{r'}_2 = \vec{r'} - \vec{r'}_1
+\end{equation}
+From both equations about we get that (since we just get contraction length in the direction of $\vec{v}$)
+\begin{equation}
+  \begin{split}
+    \vec{r} = \vec{v}t + \vec{r'}_2 + \frac{\vec{r'}_1}{\sqrt{1-\frac{\vec{v}\cdot \vec{v}}{c^2}}} = \vec{v}t + \vec{r'} - \vec{r'}_1 + \frac{\vec{r'}_1}{\sqrt{1-\frac{\vec{v}\cdot \vec{v}}{c^2}}} =  \vec{v}t + \vec{r'} - \vec{r'}_1(1-\gamma) =\\ \vec{r'} + \vec{v}\gamma t' - (\vec{r'} \cdot \frac{\vec{v}}{\|\vec{v}\|} )\frac{\vec{v}}{\|\vec{v}\|}(1 - \gamma) = \vec{r'} + (\gamma t' + \frac{\vec{r'}\cdot \vec{v}}{\vec{v} \cdot \vec{v}} (\gamma - 1) )\vec{v}
+    \end{split}
+\end{equation}
+In the same way for time would be:
+\begin{equation}
+  t = \frac{t' + \frac{\vec{r'}\cdot v}{c^2}}{\sqrt{1 - \frac{v^2}{c^2}}} =\gamma(t' + \frac{\vec{r'}\cdot v}{c^2}) \\
+\end{equation}
+And also, due to the invariance:
+\begin{equation}
+  \vec{r'} = \vec{r} - (\gamma t - \frac{\vec{r}\cdot \vec{v}}{\vec{v} \cdot \vec{v}} (\gamma - 1) )\vec{v}
+\end{equation}
+\begin{equation}
+  t' = \gamma(t - \frac{\vec{r}\cdot v}{c^2})
+\end{equation}
+From the previous equations we obtain that:
+\begin{equation}
+  d\vec{r} \cdot d\vec{r} = d\vec{r'} \cdot d\vec{r'} - c^2dt'^2 + c^2dt^2
+\end{equation}
+The previous equations can be writen as follows (which is called the invariance under Lorentz Transformation):
+\begin{equation}
+  c^2dt^2 - dx^2 - dy^2 -dz^2 = c^2dt'^2 - dx'^2 - dy'^2 - dz'^2
+\end{equation}
+If the frame reference we choose is situated in the particle that is moving (which means that $dx' = dy' = dz' = 0$), then:
+\begin{equation}
+  c^2dt^2 - dx^2 - dy^2 -dz^2 = c^2dt'^2 = c^2d\tau^2
+\end{equation}
+We change $t'$ by $\tau$ because this is a special time called ``proper time'' (because is the time measured by the moving particle). Now let's find the four-position and four-velocity of a moving particle.
+\begin{equation}
+  \vec{R} = (ct,\vec{r}) = (ct,x,y,z)
+\end{equation}
+Introducing the inner product that we will use in this space (Minkowsi):
+\begin{equation}
+  d\vec{R} \cdot d\vec{R} = cdt^2 - d\vec{r}\cdot d\vec{r} = cdt^2 - dx^2 - dy^2 - dz^2 
+\end{equation}
+Now let's find the speed (Remember that $\frac{dt}{d\tau} = \gamma$):
+\begin{equation}
+  \vec{U} = \frac{d}{d\tau} \vec{R} = (c \gamma,\frac{d\vec{r}}{d\tau}) = (c \gamma,\frac{d\vec{r}}{dt} \frac{dt}{d \tau}) = (c \gamma,\frac{d\vec{r}}{dt} \gamma)= \gamma (c,\vec{v})
+\end{equation}
+where $\vec{v}$ is the velocity of the particle with respect to the frame reference in rest. We can check that $\vec{U} \cdot \vec{U}$ is an invariant under any frame reference.
+\begin{equation}
+  \vec{U} \cdot \vec{U} = \gamma^2(c^2 - \vec{v} \cdot \vec{v}) = c^2
+\end{equation}
+Now let's find the four-momentum:
+\begin{equation}
+  \vec{P} = m\vec{U} = (\gamma mc,\gamma m\vec{v}) = (\frac{E}{c},\frac{mv}{\sqrt{1 - \frac{v^2}{c^2}}}) = (\gamma mc, \vec{p})
+\end{equation}
+\end{document}
